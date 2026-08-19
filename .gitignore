@@ -1,0 +1,33 @@
+# ===== 浏览器用户数据（含登录 Cookie / 会话，严禁上传）=====
+chrome_bili_profile/
+chrome_douyin_profile/
+douyin_playwright_user_data/
+
+# ===== 数据输出目录（图片 / 视频，体积大且涉及版权）=====
+images/
+swing_data/
+
+# ===== 模型权重（ultralytics 首次运行会自动下载）=====
+*.onnx
+yolo11s-seg_openvino_model-640/
+
+# ===== Python =====
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# ===== 环境变量 / 密钥 =====
+.env
+.env.*
+
+# ===== IDE =====
+.vscode/
+.idea/
+
+# ===== 操作系统 junk =====
+Thumbs.db
+Desktop.ini
+.DS_Store
