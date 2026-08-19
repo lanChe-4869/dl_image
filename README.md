@@ -7,8 +7,8 @@ pip install -r requirements.txt
 
 
 
-# douyin 图像下载教程
-## 1. 获取douyin的图片blog的 note_id
+# 图像下载教程
+## 1. 获取dy的图片blog的 note_id
 
 * 运行 05_manual_click_collect_douyin_model_ids.py
 
