@@ -34,7 +34,8 @@ pip install -r requirements.txt
 ## 2. 下载对应图片
 
 * 运行 06_download_douyin_note_images_fixed.py
-
+* 设置关键参数 modal_urls_file，用于读取上一步获得的note_id
+* output_dir，设置图像下载保存文件夹
   * ```
     python 05_download_douyin_note_images_fixed.py `
       --modal_urls_file "上一操作中，用于存放图片id的 txt 文件" `
@@ -51,18 +52,21 @@ pip install -r requirements.txt
 ## 3. 初步筛选
 
 下载好图片后，里面会混杂一些黑图和表情包，可以先筛选一波
-
+process\02_filter_delete_low_res_images.py
+这个脚本用于筛出来图片大小较低的图片，设置好 source_dir 和 output_dir，以及 size_threshold，把图片小的直接筛走，默认500kb的图片会被筛走
 * ```
-  process\02_filter_delete_low_res_images.py
-  这个脚本用于筛出来图片大小较低的图片，设置好 source_dir 和 output_dir，以及 size_threshold，把图片小的直接筛走，默认500kb的图片会被筛走
+  自行设置第6行 source_dir 和第8行 output_dir
+  然后，直接运行：
+  python process\02_filter_delete_low_res_images.py
   ```
 
+process\03_divide_images.py
+这个脚本使用 yolo 来检测人，我这里默认用了 yolo11n.pt，你们电脑性能好的话可以上大一点的模型，如 yolo11s.pt
+该脚本主要将数据分成三部分：单人照、双人照、多人照。
 * ```
-  process\03_divide_images.py
-  这个脚本使用 yolo 来，我这里默认用了 yolo11n.pt，你们电脑性能好的话可以上大一点的模型，如 yolo11s.pt
-  主要将数据分成三个部分：单人照、双人照、多人照、others
-  others包括：背景图、拼图、自拍的单人、双人等等。
-  others这个需要你们自己筛了，yolo只能初步筛出来但不准。
+  设置143行 source_dir 和144行 output_dir 的路径
+  然后直接运行:
+  python process\03_divide_images.py
   ```
 
   
